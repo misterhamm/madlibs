@@ -25,7 +25,6 @@
                        <img src="angularlibslogo.png" />
                    </div>
                    <h1>Automate This!</h1>
-                   <p>App Version = {{ version }}</p>
                </div>
 
             </section>
@@ -37,8 +36,8 @@
             <section class="col-md-12 input">
               <div class="input-container">
                    <div class="center">
-                       <button ng-click="female()">Female</button>
-                       <button ng-click="male()">Male</button>
+                       <button ng-click="female()" class="btn btn-primary">Female</button>
+                       <button ng-click="male()" class="btn btn-primary">Male</button>
                   </div>
                   <div>
                    <input type="text" ng-model="name" placeholder="{{ name }}"/>
