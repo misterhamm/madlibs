@@ -1,4 +1,4 @@
-.col-md-3, .col-md-9 {
+.titlebar, .col-md-9 {
     text-align: center;
     border: 3px black solid;
     height: 24rem;
@@ -27,7 +27,6 @@ h1 {
 }
 
 .input-container {
-    padding: 3rem;
     text-align: center;
 }
 
@@ -35,8 +34,8 @@ h1 {
     margin: 0 auto;
 }
 
-input {
-    margin: 2rem;
+input, .errorDiv {
+    margin: 0 1rem;
 }
 
 span {
@@ -46,4 +45,18 @@ span {
 
 .handwriting {
     font-family: 'Indie Flower', cursive;
+}
+
+.errorShow {
+    height: 3rem;
+    margin: 0;
+    color: rgba(235, 0, 0, 0.8);
+}
+
+.btn-primary {
+    margin-top: 1rem;
+}
+
+.btn-success {
+    margin-bottom: 1rem;
 }

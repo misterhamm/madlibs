@@ -10,13 +10,14 @@
     <meta charset="UTF-8">
     <title>Mad Libs!</title>
 </head>
+
 <body ng-controller="MyCtrl">
    <!-- Title Bar -->
    <div class="container">
        <div class="row">
             <section class="col-md-12 title">
                <!-- Smiley Logo -->
-               <div class="col-md-3">
+               <div class="col-md-3 titlebar">
                    <img src="smiley.png" />
                </div>
                <!-- Title -->
@@ -31,35 +32,100 @@
         </div>
 
         <!-- Input Section -->
-
         <div class="row">
             <section class="col-md-12 input">
-              <div class="input-container">
-                   <div class="center">
+              <div class="input-container container">
+                   <div class="center row">
                        <button ng-click="female()" class="btn btn-primary">Female</button>
                        <button ng-click="male()" class="btn btn-primary">Male</button>
                   </div>
-                  <div>
-                   <input type="text" ng-model="name" placeholder="{{ name }}"/>
-                   <input type="text" ng-model="job" placeholder="{{ job }}"/>
-                   <input type="text" ng-model="taskTedious" placeholder="{{ taskTedious }}"/>
-                   <input type="text" ng-model="jobDirty" placeholder="{{ jobDirty }}"/>
-                   <input type="text" ng-model="celebrity" placeholder="{{ celebrity }}"/>
-                   <input type="text" ng-model="skill" placeholder="{{ skill }}"/>
-                   <input type="text" ng-model="adjective" placeholder="{{ adjective }}"/>
-                   <input type="text" ng-model="crazyName" placeholder="{{ crazyName }}" />
-                   <input type="text" ng-model="number" placeholder="{{ number }}"/>
-                  </div>
-                </div>
-            </section>
-    </div>
+                  <form name="madLibInput" novalidate ng-submit="submit()">
+                  
+                  <!-- Row 1 inputs (do not put more than three inputs per row) -->
+                    <div class="row">
+                       <input class="col-md-3" type="text" name="name" ng-model="name" placeholder="{{ name }}" required ng-minlength="2"/>
+                       <input class="col-md-3" type="text" name="job" ng-model="job" placeholder="{{ job }}" required ng-minlength="2"/>
+                       <input class="col-md-3" type="text" name="taskTedious" ng-model="taskTedious" placeholder="{{ taskTedious }}" required ng-minlength="2"/>
+                    </div>
+                    
+                    <!-- Row 1 errors (do not put more than three inputs per row) -->
+                    <div class="row errorShow">
+                        <div class="col-md-3 errorDiv" ng-if="madLibInput.$submitted" ng-messages="madLibInput.name.$error">
+                            <span class="error" ng-message="required">Field is required!</span>
+                            <span class="error" ng-message="minlength">Field is too short!!</span>
+                        </div>
+                        <div class="col-md-3" ng-if="madLibInput.$submitted" ng-messages="madLibInput.job.$error">
+                            <span class="error" ng-message="required">Field is required!</span>
+                            <span class="error" ng-message="minlength">Field is too short!!</span>
+                        </div>
+                        <div class="col-md-3" ng-if="madLibInput.$submitted" ng-messages="madLibInput.taskTedious.$error">
+                            <span class="error" ng-message="required">Field is required!</span>
+                            <span class="error" ng-message="minlength">Field is too short!!</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 2 inputs (do not put more than three inputs per row) -->
+                    <div class="row">
+                      <input class="col-md-3" type="text" name="jobDirty" ng-model="jobDirty" placeholder="{{ jobDirty }}" required ng-minlength="2"/>
+                       <input class="col-md-3" type="text" name="celebrity" ng-model="celebrity" placeholder="{{ celebrity }}" required ng-minlength="2"/>
+                       <input class="col-md-3" type="text" name="skill" ng-model="skill" placeholder="{{ skill }}" required ng-minlength="2"/>
+                       
+                    </div>
+                    
+                    <!-- Row 2 errors (do not put more than three inputs per row) -->
+                    <div class="row errorShow">
+                        <div class="col-md-3 errorDiv" ng-if="madLibInput.$submitted" ng-messages="madLibInput.jobDirty.$error">
+                            <span class="error" ng-message="required">Field is required!</span>
+                            <span class="error" ng-message="minlength">Field is too short!!</span>
+                        </div>
+                        <div class="col-md-3" ng-if="madLibInput.$submitted" ng-messages="madLibInput.celebrity.$error">
+                            <span class="error" ng-message="required">Field is required!</span>
+                            <span class="error" ng-message="minlength">Field is too short!!</span>
+                        </div>
+                        <div class="col-md-3" ng-if="madLibInput.$submitted" ng-messages="madLibInput.skill.$error">
+                            <span class="error" ng-message="required">Field is required!</span>
+                            <span class="error" ng-message="minlength">Field is too short!!</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 3 inputs (do not put more than three inputs per row) --> 
+                    <div class="row">
+                       <input class="col-md-3" type="number" name="number" ng-model="number" placeholder="{{ number }}" required/>
+                       <input class="col-md-3" type="text" name="adjective" ng-model="adjective" placeholder="{{ adjective }}" required ng-minlength="2"/>
+                       <input class="col-md-3" type="text" name="crazyName" ng-model="crazyName" placeholder="{{ crazyName }}" required ng-minlength="2"/>
+                    </div>
+                    
+                     <!-- Row 3 errors (do not put more than three inputs per row) -->
+                    <div class="row errorShow">
+                        <div class="col-md-3 errorDiv" ng-if="madLibInput.$submitted" ng-messages="madLibInput.number.$error">
+                            <span class="error" ng-message="required">Field is required!</span>
+                        </div>
+                        <div class="col-md-3" ng-if="madLibInput.$submitted" ng-messages="madLibInput.adjective.$error">
+                            <span class="error" ng-message="required">Field is required!</span>
+                            <span class="error" ng-message="minlength">Field is too short!!</span>
+                        </div>
+                        <div class="col-md-3" ng-if="madLibInput.$submitted" ng-messages="madLibInput.crazyName.$error">
+                            <span class="error" ng-message="required">Field is required!</span>
+                            <span class="error" ng-message="minlength">Field is too short!!</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="row">
+                       <button class="btn btn-success" type="submit" ng-click="showStory=true">See Your Madlib!</button>
+                    </div>
+                      </form>
+                      
+                </div> <!-- end .container .input-contatiner -->
+            </section> <!-- end .col-md-12 .input -->
+    </div> <!-- end .row -->
+ 
     
     <!-- Story Section -->
-    <div class="row">
+    <div class="row" ng-show="showStory">
         <section class="col-md-12 story">
            <p>
-             
-              <span ng-hide="name">{Female Name}</span>
+              <span ng-hide="name">{{ name }}</span>
               <span ng-hide="!name" class="handwriting">{{name}}</span> 
               was a(n) 
               <span ng-hide="job">{Occupation}</span>
@@ -105,6 +171,7 @@
     </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js" type="text/javascript"></script>
+    <script src="angular-messages.min.js"></script>
     <script src="app.js" type="text/javascript"></script>
 </body>
 </html>
