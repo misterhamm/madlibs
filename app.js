@@ -1,5 +1,7 @@
 var myApp = angular.module('myApp', ['ngMessages'])
     
+       /* myApp.controller('genderCtrl')
+        myApp.controller('storyTwoCtrl')*/
         myApp.controller('MyCtrl', function($scope) {
             
             //fill placeholder values/story placeholders
@@ -22,9 +24,25 @@ var myApp = angular.module('myApp', ['ngMessages'])
                 $scope.gender = {"pronoun":"he", "possesive":"his", "objective":"him"};
             };
             
+            
             //Submit Function
             $scope.submit = function() {
-                //does something 
+                $scope.showStory=true; 
+            };
+            
+            //Reset 
+            $scope.reset = function() {
+                $scope.name = '{Name}';
+                $scope.job = '{Occupation}';
+                $scope.taskTedious = '{Tedious Task}';
+                $scope.jobDirty = '{Dirty Job}';
+                $scope.celebrity = '{Obnoxious Celebrity}';
+                $scope.skill = '{Useless Skill}';
+                $scope.adjective = '{Adjective}';
+                $scope.crazyName = '{Crazy Name}';
+                $scope.number = '{Number}';
+                angular.element(document.querySelector('.numberInput')).val('');
+                $scope.showStory=false; 
             };
 });
                                

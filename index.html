@@ -39,11 +39,11 @@
                        <button ng-click="female()" class="btn btn-primary">Female</button>
                        <button ng-click="male()" class="btn btn-primary">Male</button>
                   </div>
-                  <form name="madLibInput" novalidate ng-submit="submit()">
+                  <form name="madLibInput" novalidate ng-submit="madLibInput.$valid&&submit()">
                   
                   <!-- Row 1 inputs (do not put more than three inputs per row) -->
                     <div class="row">
-                       <input class="col-md-3" type="text" name="name" ng-model="name" placeholder="{{ name }}" required ng-minlength="2"/>
+                       <input class="col-md-3" type="text" name="name" ng-model="name" placeholder="{{ name }}" required ng-minlength="2" ng-focus="name=''"/>
                        <input class="col-md-3" type="text" name="job" ng-model="job" placeholder="{{ job }}" required ng-minlength="2"/>
                        <input class="col-md-3" type="text" name="taskTedious" ng-model="taskTedious" placeholder="{{ taskTedious }}" required ng-minlength="2"/>
                     </div>
@@ -90,7 +90,7 @@
                     
                     <!-- Row 3 inputs (do not put more than three inputs per row) --> 
                     <div class="row">
-                       <input class="col-md-3" type="number" name="number" ng-model="number" placeholder="{{ number }}" required/>
+                       <input class="col-md-3 numberInput" type="number" name="number" ng-model="number" placeholder="{{ number }}" required/>
                        <input class="col-md-3" type="text" name="adjective" ng-model="adjective" placeholder="{{ adjective }}" required ng-minlength="2"/>
                        <input class="col-md-3" type="text" name="crazyName" ng-model="crazyName" placeholder="{{ crazyName }}" required ng-minlength="2"/>
                     </div>
@@ -112,7 +112,7 @@
                     
                     <!-- Submit Button -->
                     <div class="row">
-                       <button class="btn btn-success" type="submit" ng-click="showStory=true">See Your Madlib!</button>
+                       <button class="btn btn-success" type="submit">See Your Madlib!</button>
                     </div>
                       </form>
                       
@@ -122,8 +122,8 @@
  
     
     <!-- Story Section -->
-    <div class="row" ng-show="showStory">
-        <section class="col-md-12 story">
+    <div class="row">
+        <section class="col-md-12 story" ng-show="showStory">
            <p>
               <span ng-hide="name">{{ name }}</span>
               <span ng-hide="!name" class="handwriting">{{name}}</span> 
@@ -165,6 +165,8 @@
               <span ng-hide="!number" class="handwriting">{{number}}</span> 
               times faster! 
             </p>
+            
+            <button ng-click="reset()">Reset</button>
 
         </section>
     </div>
