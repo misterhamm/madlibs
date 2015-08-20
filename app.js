@@ -1,11 +1,11 @@
-var myApp = angular.module('myApp', ['ngMessages'])
+var myApp = angular.module('myApp', ['ngMessages', 'ngAnimate'])
     
        /* myApp.controller('genderCtrl')
         myApp.controller('storyTwoCtrl')*/
         myApp.controller('MyCtrl', function($scope) {
             
             //fill placeholder values/story placeholders
-            $scope.name = '{Name}';
+           /* $scope.name = '{Name}';
             $scope.job = '{Occupation}';
             $scope.taskTedious = '{Tedious Task}';
             $scope.jobDirty = '{Dirty Job}';
@@ -13,7 +13,7 @@ var myApp = angular.module('myApp', ['ngMessages'])
             $scope.skill = '{Useless Skill}';
             $scope.adjective = '{Adjective}';
             $scope.crazyName = '{Crazy Name}';
-            $scope.number = '{Number}';
+            $scope.number = '{Number}';*/
             
             //Male/Female support
             $scope.gender = {"pronoun":"she", "possesive":"her", "objective":"her"};
@@ -32,15 +32,15 @@ var myApp = angular.module('myApp', ['ngMessages'])
             
             //Reset 
             $scope.reset = function() {
-                $scope.name = '{Name}';
-                $scope.job = '{Occupation}';
-                $scope.taskTedious = '{Tedious Task}';
-                $scope.jobDirty = '{Dirty Job}';
-                $scope.celebrity = '{Obnoxious Celebrity}';
-                $scope.skill = '{Useless Skill}';
-                $scope.adjective = '{Adjective}';
-                $scope.crazyName = '{Crazy Name}';
-                $scope.number = '{Number}';
+                $scope.name = '';
+                $scope.job = '';
+                $scope.taskTedious = '';
+                $scope.jobDirty = '';
+                $scope.celebrity = '';
+                $scope.skill = '';
+                $scope.adjective = '';
+                $scope.crazyName = '';
+                $scope.number = '';
                 angular.element(document.querySelector('.numberInput')).val('');
                 $scope.showStory=false; 
             };

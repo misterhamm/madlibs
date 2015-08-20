@@ -57,6 +57,56 @@ span {
     margin: 2rem 1rem;
 }
 
-.btn-success {
+.btn-success, .btn-warning {
     margin-bottom: 1rem;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes shake {
+  from, 100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+.shake {
+  -webkit-animation-name: shake;
+  animation-name: shake;
+}
+
+#story {
+  width: 100%;
+  transition: 0.4s all ease-out;
+}
+
+
+#story.ng-hide-add,
+#story.ng-hide-remove {
+  display: block !important;
+}
+#story.ng-hide-remove,
+#story.ng-hide-add.ng-hide-add-active {
+  margin-top: -80px;
+  opacity: 0;
+}
+#story.ng-hide-remove.ng-hide-remove-active,
+#story.ng-hide-add {
+  margin-top: 0;
+  opacity: 1;
 }
